@@ -106,12 +106,4 @@ export class UserListComponent implements OnInit {
     this.classCss['alert-'+type] = true;
   }
 
-  getFormGroupClass(isInvalid: boolean, isDirty: boolean) : {} {
-    return {
-      'form-group' : true,
-      'has-error' : isInvalid && isDirty,
-      'has-success' : !isInvalid && isDirty
-    };
-  }
-
 }

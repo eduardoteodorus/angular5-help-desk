@@ -36,9 +36,9 @@ export class TicketService {
 
   findByParams(page: number, size: number, assignedToMe: boolean, t: Ticket) {
     t.number = t.number == null? 0 : t.number;
-    t.title = t.title == null? 'uninformed' : t.title;
-    t.status = t.status == null? 'uninformed' : t.status;
-    t.priority = t.priority == null? 'uninformed' : t.priority;
+    t.title = t.title == null || t.title == '' ? 'uninformed' : t.title;
+    t.status = t.status == null || t.status == '' ? 'uninformed' : t.status;
+    t.priority = t.priority == null || t.priority == '' ? 'uninformed' : t.priority;
 
     return this.http.get(`${HELPDESK_API_TICKET}/${page}/${size}/${t.number}/${t.title}/${t.status}/${t.priority}/${assignedToMe}`);
   }
